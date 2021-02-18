@@ -21,7 +21,8 @@ for img in res.find_all("img"):
         break
     src = img.get("src")
     ext = "jpg"
-    filename = os.path.join(f"images_{query}",str(i)+"."+ext)
+    filename = os.path.join(f"images_{query}",
+    f"{'0'*(2-len(str(i)))}{str(i)}"+"."+ext)
     try:
         data = urlopen(src).read()
         open(filename, mode='x').close()
